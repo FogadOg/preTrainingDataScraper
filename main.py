@@ -8,13 +8,49 @@ import csv
 
 
 urls=[
-    # "https://en.wikipedia.org/wiki/United_States",
-    # "https://en.wikipedia.org/wiki/Reddit",
-    # "https://en.wikipedia.org/wiki/Internet_culture",
+    "https://en.wikipedia.org/wiki/United_States",
+    "https://en.wikipedia.org/wiki/Reddit",
+    "https://en.wikipedia.org/wiki/Internet_culture",
     "https://en.wikipedia.org/wiki/Debugging",
     "https://en.wikipedia.org/wiki/Meme",
     "https://en.wikipedia.org/wiki/Humour",
-    "https://no.wikipedia.org/wiki/Komedie",
+    "https://en.wikipedia.org/wiki/Comedy",
+    "https://en.wikipedia.org/wiki/Stand-up_comedy",
+    "https://en.wikipedia.org/wiki/Programming_language",
+    "https://en.wikipedia.org/wiki/Language",
+    "https://en.wikipedia.org/wiki/Psychology",
+    "https://en.wikipedia.org/wiki/21st_century",
+    "https://en.wikipedia.org/wiki/School",
+    "https://en.wikipedia.org/wiki/Education",
+    "https://en.wikipedia.org/wiki/Economy",
+    "https://en.wikipedia.org/wiki/Physics",
+    "https://en.wikipedia.org/wiki/Physicist",
+    "https://en.wikipedia.org/wiki/Evolution",
+    "https://en.wikipedia.org/wiki/Big_Bang",
+    "https://en.wikipedia.org/wiki/Leonardo_da_Vinci",
+    "https://en.wikipedia.org/wiki/Roman_Empire",
+    "https://en.wikipedia.org/wiki/History_of_the_Roman_Empire",
+    "https://en.wikipedia.org/wiki/Ancient_Egypt",
+    "https://en.wikipedia.org/wiki/Ancient_Greece",
+    "https://en.wikipedia.org/wiki/Classical_Athens",
+    "https://en.wikipedia.org/wiki/Ancient_history",
+    "https://en.wikipedia.org/wiki/17th_century",
+    "https://en.wikipedia.org/wiki/GitHub",
+    "https://en.wikipedia.org/wiki/Cmd.exe",
+    "https://en.wikipedia.org/wiki/PowerShell",
+    "https://en.wikipedia.org/wiki/Git",
+    "https://en.wikipedia.org/wiki/API",
+    "https://en.wikipedia.org/wiki/Nature",
+    "https://en.wikipedia.org/wiki/Geology",
+    "https://en.wikipedia.org/wiki/Africa",
+    "https://en.wikipedia.org/wiki/Asia",
+    "https://en.wikipedia.org/wiki/Europe",
+    "https://en.wikipedia.org/wiki/North_America",
+    "https://en.wikipedia.org/wiki/South_America",
+    "https://en.wikipedia.org/wiki/Antarctica",
+    "https://en.wikipedia.org/wiki/Oceania",
+    "https://en.wikipedia.org/wiki/Minecraft",
+    "https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive",
 ]
 
 
@@ -74,12 +110,20 @@ class CreateCsvData():
         sequanceLength=len(textSplitBySpace)
         
         preiviusSentance=None
+        with open(f'preTrainingData.csv', 'a', encoding='UTF8') as f:                
+            #write header for columns in csv file
+            dw = csv.DictWriter(f, delimiter=',', 
+                fieldnames=["input","target"])
+            dw.writeheader()
         for i in range(sequanceLength-self.windowSize):
         
             textSequance=textSplitBySpace[i:i+self.windowSize]
-            # currentSentance=" ".join(textSequance)
+
             if preiviusSentance!=None:
+
+
                 with open(f'preTrainingData.csv', 'a', encoding='UTF8') as f:
+
                     writer = csv.writer(f)
                     writer.writerow([preiviusSentance," ".join(textSequance)])
 
