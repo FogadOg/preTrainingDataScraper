@@ -8,9 +8,13 @@ import csv
 
 
 urls=[
-    "https://en.wikipedia.org/wiki/United_States",
-    "https://en.wikipedia.org/wiki/Reddit",
-    "https://en.wikipedia.org/wiki/Internet_culture",
+    # "https://en.wikipedia.org/wiki/United_States",
+    # "https://en.wikipedia.org/wiki/Reddit",
+    # "https://en.wikipedia.org/wiki/Internet_culture",
+    "https://en.wikipedia.org/wiki/Debugging",
+    "https://en.wikipedia.org/wiki/Meme",
+    "https://en.wikipedia.org/wiki/Humour",
+    "https://no.wikipedia.org/wiki/Komedie",
 ]
 
 
